@@ -10,7 +10,8 @@
 </div>  
 
 Welcome to the very first step of my **Silicon Diary** 📝.  
-Day 0 was all about **laying the foundation**:  
+Day 0 was all about **laying the foundation**: 
+- Getting started with Digital VLSI SOC Design and Planning
 - Creating this GitHub repository to document my journey.  
 - Setting up a **Linux-based design environment** and installing essential tools.  
 
@@ -20,7 +21,7 @@ Day 0 was all about **laying the foundation**:
 
 | # | Task | Outcome |
 |---|------|---------|
-| 1️⃣ | **Summarize Introductory Video** | Key takeaways captured with screenshot |
+| 1️⃣ | **Summarize Getting started with Digital VLSI SOC Design and Planning Video** | Key takeaways captured with screenshot |
 | 2️⃣ | **Install Open-Source EDA Tools** | Yosys, Icarus Verilog, GTKWave, Ngspice, Magic VLSI installed & tested |
 
 ---
@@ -36,7 +37,14 @@ The introductory session explained the **SoC design flow** step by step:
 - **SoC Integration** ➝ Combining macros, analog IPs, and GPIOs.  
 - **Floorplanning & GDSII** ➝ Physical design and final tape-out.  
 
-📷 *[Screenshot of Workflow Placeholder]*  
+## 📷 **Flow Chart of SoC design flow**
+<p align="center">
+  <img src="" 
+       alt="SoC Design Flow" width="600"/>
+</p>
+
+<div align="center">
+
 
 ---
 
