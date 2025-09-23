@@ -54,3 +54,23 @@ Simulators are essential tools used to model, analyze, and verify the behavior o
   <img src="Images/Simulator1.png" alt="Simulator" width="70%">
 </div>
 
+#### How Simulator Works:
+
+##### 1. Parsing & Compilation
+- Reads your code (Verilog/VHDL) and checks syntax.
+- Converts design into an internal model.
+
+##### 2. Elaboration
+- Resolves module hierarchy and signal connections.
+- Sets initial values for all signals.
+
+##### 3. Simulation (Event-Driven)
+- Signals are updated only when inputs change.
+- Changes propagate through the circuit based on logic and delays.
+
+##### 4. Output & Waveforms
+- Records signal values over time.
+- Shows results via text or waveform viewer.
+<div align="center">
+  <img src="Images/Simulator_Working.png" alt="Simulator_Working" width="70%">
+</div>
