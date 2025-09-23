@@ -51,6 +51,6 @@ In introduction it started with some basic definations which are describe below 
 #### Simulator
 Simulators are essential tools used to model, analyze, and verify the behavior of integrated circuits before physical fabrication, ensuring design accuracy and performance.
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/93927b96-df80-4da5-b801-284fc2cc6757" alt="Design & Testbench Overview" width="70%">
+  <img src="Images/Simulator1.png" alt="Simulator" width="70%">
 </div>
 
