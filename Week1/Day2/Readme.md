@@ -106,7 +106,7 @@ In this lecture they explain about multiple modules and how they work and how th
    ```
 2. Read Liberty library:
    ```shell
-   read_liberty -lib ../lib/sky130/file/sky130_fd_sc_hd__tt_025C_1v80.lib
+   read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
    ```
 3. Read Verilog code:
    ```shell
@@ -118,7 +118,7 @@ In this lecture they explain about multiple modules and how they work and how th
    ```
 6. Technology mapping:
    ```shell
-   abc -liberty /address/to/your/sky130/file/sky130_fd_sc_hd__tt_025C_1v80.lib
+   abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
    ```
 7. Visualize the gate-level netlist:
    ```shell
