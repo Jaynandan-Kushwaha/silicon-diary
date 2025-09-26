@@ -230,7 +230,39 @@ Some factors that distinguish these gate variants include:
 ---
 
 👉 In short, Yosys performs the **conversion and optimization**, while the gate libraries provide the **building blocks in different “flavors”** to match design needs.
+
 ---
+### Here are some Golden Key Point About this topic well explained and by Teacher here i am attaching for my revision purpose in future i can refresh my concept
+
+<div align="center">
+  <img src="Images/Lecture1.png" alt="Lecture1.png" width="70%">
+</div>
+<div align="center">
+  <img src="Images/Lecture2.png" alt="Lecture2.png" width="70%">
+</div>
+<div align="center">
+  <img src="Images/Lecture3.png" alt="Lecture3.png" width="70%">
+</div>
+<div align="center">
+  <img src="Images/Lecture4.png" alt="Lecture4.png" width="70%">
+</div>
+<div align="center">
+  <img src="Images/Lecture5.png" alt="Lecture5.png" width="70%">
+</div>
+<div align="center">
+  <img src="Images/Lecture6.png" alt="Lecture6.png" width="70%">
+</div>
+<div align="center">
+  <img src="Images/Lecture7.png" alt="Lecture7.png" width="70%">
+</div>
+<div align="center">
+  <img src="Images/Lecture8.png" alt="Lecture8.png" width="70%">
+</div>
+<div align="center">
+  <img src="Images/Lecture9.png" alt="Lecture9.png" width="70%">
+</div>
+
+
 
 ## . Synthesis Lab with Yosys
 
@@ -289,3 +321,4 @@ Let’s synthesize the `good_mux` design using Yosys!
 #### Thats all what we learned in day 1 
 
 I attended every lecture in time but due to health issues i wasnt able to write github notes on that day itself but i was consistent everyday and did my all task everyday 
+## I am so much thankful to teacher who clear our such concept in this much easy way i dont care if i will be selcetd for top 50 or 20 but what i am getting from this course is in itself is a gold for student like us so much thank you sir for your great knowledge i dont have word for expressing thanks to you you are really gems sir once more thank you sir 
