@@ -144,9 +144,70 @@ after this we flatten the design and see that design here is output
 
 after comparing this we also see sub_module1 and submodule2 both submodule and see is they synthesise correct as sir explain in class 
 <div align="center">
-  <img src="Images/multiple_module.png" alt="multiple_module.png" width="70%">
+  <img src="Images/submodule1.png" alt="submodule1.png" width="70%">
 </div>
 <div align="center">
-  <img src="Images/multiple_module.png" alt="multiple_module.png" width="70%">
+  <img src="Images/submodule2.png" alt="submodule2.png" width="70%">
+</div>
+
+
+## Simulation and Synthesis Workflow
+
+### Icarus Verilog Simulation
+
+dff_asyncres
+
+1. **Compile:**
+   ```shell
+   iverilog dff_asyncres.v tb_dff_asyncres.v
+   ```
+2. **Run:**
+   ```shell
+   ./a.out
+   ```
+3. **View Waveform:**
+   ```shell
+   gtkwave tb_dff_asyncres.vcd
+   ```
+<div align="center">
+  <img src="Images/lecture3.png" alt="lecture3.png" width="70%">
+</div>
+---
+
+dff_asyncres_set
+
+1. **Compile:**
+   ```shell
+   iverilog dff_asyncres_set.v tb_dff_asyncres_set.v
+   ```
+2. **Run:**
+   ```shell
+   ./a.out
+   ```
+3. **View Waveform:**
+   ```shell
+   gtkwave tb_dff_asyncres_set.vcd
+   ```
+<div align="center">
+  <img src="Images/lecture3.png" alt="lecture3.png" width="70%">
+</div>
+
+dff_synchrous
+
+
+1. **Compile:**
+   ```shell
+   iverilog dff_syncres.v tb_dff_syncres.v
+   ```
+2. **Run:**
+   ```shell
+   ./a.out
+   ```
+3. **View Waveform:**
+   ```shell
+   gtkwave tb_dff_syncres.vcd
+   ```
+<div align="center">
+  <img src="Images/lecture3.png" alt="lecture3.png" width="70%">
 </div>
 
