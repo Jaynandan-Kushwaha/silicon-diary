@@ -74,3 +74,57 @@ Simulators are essential tools used to model, analyze, and verify the behavior o
 <div align="center">
   <img src="Images/Simulator_Working.png" alt="Simulator_Working" width="70%">
 </div>
+---
+
+#### . Testbench and Its Working
+
+#### What is a Testbench?
+- A **testbench** is a simulation environment used to **verify and validate** a design (DUT – Design Under Test).
+- It is **not synthesized into hardware**; it only exists for testing in simulation.
+- Acts like a **virtual lab**, applying inputs and checking outputs of the design.
+<div align="center">
+  <img src="Images/Testbench.png" alt="Testbench" width="70%">
+</div>
+---
+
+#### How a Testbench Works
+1. **Instantiate DUT**  
+   - The testbench creates an instance of the design module to be tested.
+
+2. **Generate Stimulus (Inputs)**  
+   - Provides different input patterns (clock, reset, test signals) to the DUT.
+
+3. **Monitor Outputs**  
+   - Captures and observes the DUT outputs for correctness.
+
+4. **Check/Verify Results**  
+   - Compares DUT output with the expected output (using assertions or manual checks).
+
+5. **Display Results**  
+   - Uses `$display`, `$monitor`, or waveform viewers to show simulation behavior.
+
+## Key Points
+- A testbench usually includes **clock generation, reset logic, input stimulus, and output checking**.
+- It helps detect errors **early in simulation** before going to hardware.
+<div align="center">
+  <img src="Images/testbench_Working.png" alt="testbench_Working" width="70%">
+</div>
+---
+
+#### .Design
+I put lecture screenshot for defining Design 
+<div align="center">
+  <img src="Images/Design.png" alt="Design" width="70%">
+</div
+
+----
+
+#### . Iverilog Based simulation Flow
+
+<div align="center">
+  <img src="Images/Design.png" alt="Design" width="70%">
+</div
+---
+
+
+
