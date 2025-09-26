@@ -63,8 +63,9 @@ That’s why libraries include multiple PVT corners, such as:
 By using different libraries, designers can **test robustness**, ensuring the chip works reliably across all real-world conditions.  
 
 <div align="center">
-  <img src="Images/Lib-file" alt="lib-file" width="70%">
+  <img src="Images/Lib-file" alt="lib-file.png" width="70%">
 </div>
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/3ca190fb-cfa4-4abb-b9e1-0151b3c4bdba" alt="iverilog Simulation Flow" width="70%">
+  <img src="Images/Lecture1" alt="lecture1.png" width="70%">
 </div>
+In this lecture they explain about Process Voltage and temprature how on these terms are important in silicon design work and this PVT tell how fast and slow our silicon will work 
