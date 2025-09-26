@@ -93,9 +93,60 @@ Tools like **Yosys** handle each module separately. Using commands like `hierarc
 **Drawbacks:**  
 - **Cross-module optimizations are limited**, which might reduce overall performance.  
 - **Reports may require extra setup**, since hierarchical structures are not always captured automatically.
+<div align="center">
+  <img src="Images/Lecture2.png" alt="Lecture2.png" width="70%">
+</div>
+In this lecture they explain about multiple modules and how they work and how they will look after synthesis
 
 #### Here is one exapmle we synthesis multipul module.v file and understand the synthesisation behind the tool
 
+1. Start Yosys:
+   ```shell
+   yosys
+   ```
+2. Read Liberty library:
+   ```shell
+   read_liberty -lib ../lib/sky130/file/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+3. Read Verilog code:
+   ```shell
+   read_verilog multiple_modules.v
+   ```
+4. Synthesize:
+   ```shell
+   synth -top multiple_module
+   ```
+6. Technology mapping:
+   ```shell
+   abc -liberty /address/to/your/sky130/file/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+7. Visualize the gate-level netlist:
+   ```shell
+   show multiple_modules
+   ```
 
+<div align="center">
+  <img src="Images/Multiple_Modules.png" alt="Multiple_Modules.png" width="70%">
+</div>
+8. for generating heir.v file:
 
+ ```shell
+  write_verilog multiple_modules_hier.v
+   ```
+<div align="center">
+  <img src="Images/multiple_module.png" alt="multiple_module.png" width="70%">
+</div>
+with the help of this file we try to understand what we assumed or design by our logic is that correct or not 
+after this we flatten the design and see that design here is output 
+<div align="center">
+  <img src="Images/multiple_module.png" alt="multiple_module.png" width="70%">
+</div>
+
+after comparing this we also see sub_module1 and submodule2 both submodule and see is they synthesise correct as sir explain in class 
+<div align="center">
+  <img src="Images/multiple_module.png" alt="multiple_module.png" width="70%">
+</div>
+<div align="center">
+  <img src="Images/multiple_module.png" alt="multiple_module.png" width="70%">
+</div>
 
