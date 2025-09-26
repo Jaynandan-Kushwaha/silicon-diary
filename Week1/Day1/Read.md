@@ -321,4 +321,15 @@ Let’s synthesize the `good_mux` design using Yosys!
 #### Thats all what we learned in day 1 
 
 I attended every lecture in time but due to health issues i wasnt able to write github notes on that day itself but i was consistent everyday and did my all task everyday 
-## I am so much thankful to teacher who clear our such concept in this much easy way i dont care if i will be selcetd for top 50 or 20 but what i am getting from this course is in itself is a gold for student like us so much thank you sir for your great knowledge i dont have word for expressing thanks to you you are really gems sir once more thank you sir 
+
+---
+
+## A Note of Gratitude 🙏
+
+This journey has been more than just learning Verilog or tools—it’s been about clarity, confidence, and inspiration.  
+I’m not worried about rankings like top 50 or top 20, because the knowledge we are receiving here is already a **golden reward** for students like us.  
+
+To our teacher: thank you for simplifying what once felt impossible, and for sharing wisdom with such patience.  
+You are truly a **gem for learners**, and words will never be enough to capture our gratitude.  
+Once again, thank you, sir! 🌟
+
