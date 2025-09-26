@@ -210,4 +210,183 @@ dff_synchrous
 <div align="center">
   <img src="Images/lecture3.png" alt="lecture3.png" width="70%">
 </div>
+---
+
+### Synthesis with Yosys
+dff_asyncres
+1. Start Yosys:
+   ```shell
+   yosys
+   ```
+2. Read Liberty library:
+   ```shell
+   read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+3. Read Verilog code:
+   ```shell
+   read_verilog dff_asyncres.v
+   ```
+4. Synthesize:
+   ```shell
+   synth -top dff_asyncres
+   ```
+5. Map flip-flops:
+   ```shell
+   dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+6. Technology mapping:
+   ```shell
+   abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+7. Visualize the gate-level netlist:
+   ```shell
+   show
+   ```
+<div align="center">
+  <img src="Images/synth-assync.png" alt="synth-assync.png" width="70%">
+</div> 
+
+---
+
+dff_assyncruns-set
+
+1. Start Yosys:
+   ```shell
+   yosys
+   ```
+2. Read Liberty library:
+   ```shell
+   read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+3. Read Verilog code:
+   ```shell
+   read_verilog dff_async_set.v
+   ```
+4. Synthesize:
+   ```shell
+   synth -top dff_async_set
+   ```
+5. Map flip-flops:
+   ```shell
+   dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+6. Technology mapping:
+   ```shell
+   abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+7. Visualize the gate-level netlist:
+   ```shell
+   show
+   ```
+<div align="center">
+  <img src="Images/synth-assync-set.png" alt="synth-assync-set.png" width="70%">
+</div>  
+
+---
+
+dff-
+
+1. Start Yosys:
+   ```shell
+   yosys
+   ```
+2. Read Liberty library:
+   ```shell
+   read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+3. Read Verilog code:
+   ```shell
+   read_verilog dff_asyncres.v
+   ```
+4. Synthesize:
+   ```shell
+   synth -top dff_asyncres
+   ```
+5. Map flip-flops:
+   ```shell
+   dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+6. Technology mapping:
+   ```shell
+   abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+7. Visualize the gate-level netlist:
+   ```shell
+   show
+   ```
+<div align="center">
+  <img src="Images/synth-sync.png" alt="synth-sync.png" width="70%">
+</div>  
+
+### Intresting Optimisation
+Mul2
+1. Start Yosys:
+   ```shell
+   yosys
+   ```
+2. Read Liberty library:
+   ```shell
+   read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+3. Read Verilog code:
+   ```shell
+   read_verilog mult_2.v
+   ```
+4. Synthesize:
+   ```shell
+   synth -top mul2
+   ```
+
+5. Technology mapping:
+   ```shell
+   abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+6. Visualize the gate-level netlist:
+   ```shell
+   show
+   ```
+<div align="center">
+  <img src="Images/mul2.png" alt="mul2.png" width="70%">
+</div>  
+
+Mul8
+1. Start Yosys:
+   ```shell
+   yosys
+   ```
+2. Read Liberty library:
+   ```shell
+   read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+3. Read Verilog code:
+   ```shell
+   read_verilog mult_8.v
+   ```
+4. Synthesize:
+   ```shell
+   synth -top mult8
+   ```
+
+5. Technology mapping:
+   ```shell
+   abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+6. Visualize the gate-level netlist:
+   ```shell
+   show
+   ```
+<div align="center">
+  <img src="Images/mul8.png" alt="mul8.png" width="70%">
+</div> 
+---
+
+## Summary
+
+This guide has covered key aspects of **RTL design and synthesis**, offering practical insights into **timing libraries, synthesis methodologies, and flip-flop coding styles**.  
+
+- **Timing Libraries:** Understanding different process corners, voltage, and temperature variations helps ensure that your design meets performance and reliability requirements.  
+- **Synthesis Strategies:** Hierarchical and flattened synthesis approaches provide flexibility in optimizing design speed, area, and debugability. Choosing the right approach depends on the size and complexity of your design.  
+- **Flip-Flop Coding Practices:** Proper coding of asynchronous and synchronous flip-flops ensures predictable behavior, avoids glitches, and supports robust sequential circuit design.
+
+By exploring and experimenting with these concepts, you can **improve your RTL design skills**, write cleaner code, and make your designs more efficient, modular, and easier to debug. This foundation will help you confidently tackle **complex digital systems** and optimize them for real-world applications.
 
