@@ -120,11 +120,56 @@ I put lecture screenshot for defining Design
 ----
 
 #### . Iverilog Based simulation Flow
-
+In Iverilog Based simulation flow we provide verilog file and testbench file as a input to a iverilog and it dumped file in vcd and that file we can analyse in gtkwave
 <div align="center">
-  <img src="Images/Design.png" alt="Design" width="70%">
-</div
+  <img src="Images/Simulation_Flow.png" alt="Design" width="70%">
+</div 
 ---
 
+## Lab Setup 
 
+### Lab1 
+Make seprate folder for saving our whole lab work in one folder 
+```shell
+mkdir VSD/VLSI
+```
+
+####  Step 1: Clone the Workshop Repository
+
+```shell
+git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
+cd sky130RTLDesignAndSynthesisWorkshop/verilog_files
+```
+####  Step 2: Install Required Tools
+
+install these tool if you didnt install in day 0 work 
+if you then ignore this part
+```shell
+sudo apt install iverilog
+sudo apt install gtkwave
+```
+----
+
+### Lab2 
+
+In lab2 we learn how to operate and what are the command to run iverilog and gtk wave tool with on example 
+Here are steps:
+we taken exapmle of good_mux verilog file 
+1.Compile the design and testbench:
+```shell
+iverilog good_mux.v tb_good_mux.v
+```
+2.Run the simulation:
+
+```shell
+./a.out
+```
+3.View the waveform:
+
+```shell
+gtkwave tb_good_mux.vcd
+```
+<div align="center">
+  <img src="Images/Simulation_Flow.png" alt="Design" width="70%">
+</di
 
