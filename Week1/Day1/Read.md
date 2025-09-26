@@ -170,6 +170,110 @@ iverilog good_mux.v tb_good_mux.v
 gtkwave tb_good_mux.vcd
 ```
 <div align="center">
-  <img src="Images/Simulation_Flow.png" alt="Design" width="70%">
+  <img src="Images/Good_mux.png" alt="Good_mux" width="70%">
 </di
+<div align="center">
+  <img src="Images/good_mu-GTKwave View.png" alt="GTKWave" width="70%">
+</div>
+---
 
+ 4. Verilog Code Analysis
+
+**The code for the multiplexer (`good_mux.v`):**
+
+```verilog
+module good_mux (input i0, input i1, input sel, output reg y);
+always @ (*)
+begin
+    if(sel)
+        y <= i1;
+    else 
+        y <= i0;
+end
+endmodule
+```
+
+####  **How It Works**
+
+- **Inputs:** `i0`, `i1` (data), `sel` (select line)
+- **Output:** `y` (registered output)
+- **Logic:** If `sel` is 1, `y` gets `i1`; if `sel` is 0, `y` gets `i0`.
+
+---
+
+## . Introduction to Yosys & Gate Libraries
+
+### What is Yosys?
+**Yosys** is an open-source tool used for **logic synthesis** of digital circuits.  
+It translates Verilog designs into a **gate-level netlist**, which acts like a blueprint of the actual hardware implementation.
+
+#### Key Capabilities of Yosys
+- **Logic Synthesis:** Turns HDL code into interconnected logic gates.  
+- **Design Optimization:** Refines circuits for better speed, area, or power.  
+- **Technology Mapping:** Maps generic logic onto specific hardware library cells.  
+- **Formal Verification:** Ensures design correctness through checks.  
+- **Flexible Extensions:** Can be integrated into custom flows and EDA tools.  
+
+---
+
+### Why Do Libraries Have Multiple Gate Variants?
+Standard cell libraries (`.lib` files) don’t just provide one type of gate—they usually offer **several versions of the same gate** (AND, OR, NOT, etc.) with different characteristics.  
+
+Some factors that distinguish these gate variants include:
+- **Speed:** High-performance gates for time-critical paths.  
+- **Power Consumption:** Low-power options to save energy.  
+- **Area:** Compact cells to minimize chip size.  
+- **Drive Strength:** Stronger cells to handle larger loads.  
+- **Noise & Integrity:** Special cells to maintain signal quality.  
+- **Mapping Flexibility:** Gives synthesis tools options to balance trade-offs.  
+
+---
+
+👉 In short, Yosys performs the **conversion and optimization**, while the gate libraries provide the **building blocks in different “flavors”** to match design needs.
+---
+
+## . Synthesis Lab with Yosys
+
+Let’s synthesize the `good_mux` design using Yosys!
+
+###  Step-by-Step Yosys Flow
+
+
+1. **Start Yosys**
+   inside your  this adress where we clone our sky130 lab package /home/jaynadan/vsd/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+   start yosis 
+    ```shell
+    yosys
+    ```
+
+3. **Read the liberty library**
+    ```shell
+    read_liberty -lib ..lib/sky130/file/sky130_fd_sc_hd__tt_025C_1v80.lib
+    ```
+    Note:- everyone can have in different folder so check according to that where .lib file existing 
+
+4. **Read the Verilog code**
+    ```shell
+    read_verilog /home/vsd/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files/good_mux.v
+    ```
+
+5. **Synthesize the design**
+    ```shell
+    synth -top good_mux
+    ```
+
+6. **Technology mapping**
+    ```shell
+    abc -liberty ..lib/sky130/file/sky130_fd_sc_hd__tt_025C_1v80.lib
+    ```
+
+7. **Visualize the gate-level netlist**
+    ```shell
+    show
+    ```
+
+<div align="center">
+  <img src="Good-mux-synthesis.png" alt="Good-mux-synthesis.png" width="70%">
+</div>
+
+---
