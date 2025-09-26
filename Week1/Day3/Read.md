@@ -186,8 +186,192 @@ endmodule
 #### Output
 
 <div align="center">
-  <img src="Images/explanation.png" alt="sequantial.png" width="70%">
+  <img src="Images/opt_check.png" width="70%">
 </div>
+
+### Lab 2
+
+Verilog code:
+
+```verilog
+module opt_check2 (input a , input b , output y);
+	assign y = a?1:b;
+endmodule
+```
+
+**Code Analysis:**
+- Acts as a multiplexer:
+  - `y = 1` if `a` is true.
+  - `y = b` if `a` is false.
+
+<div align="center">
+  <img src="Images/opt_check2.png" width="70%">
+</div>
+
+### Lab 3
+
+Verilog code:
+
+```verilog
+module opt_check2 (input a , input b , output y);
+	assign y = a?1:b;
+endmodule
+```
+
+**Functionality:**  
+2-to-1 multiplexer; `y = a ? 1 : b` (outputs `1` when `a` is true, otherwise `b`).
+<div align="center">
+  <img src="Images/opt_check3.png" width="70%">
+</div>
+
+### Lab 4
+
+Verilog code:
+
+```verilog
+module opt_check4 (input a , input b , input c , output y);
+ assign y = a?(b?(a & c ):c):(!c);
+ endmodule
+```
+
+**Functionality:**
+- Three inputs (`a`, `b`, `c`), output `y`.
+- Nested ternary logic:
+  - If `a = 1`, `y = c`.
+  - If `a = 0`, `y = !c`.
+- Logic simplifies to:  
+  `y = a ? c : !c`
+
+<div align="center">
+  <img src="Images/opt_check4.png" width="70%">
+</div>
+<div align="center">
+  <img src="Images/opt_check4-1.png" width="70%">
+</div>
+
+### Lab 5
+Verilog code:
+
+```verilog
+module multiple_module_opt(input a , input b , input c , input d , output y);
+wire n1,n2,n3;
+
+sub_module1 U1 (.a(a) , .b(1'b1) , .y(n1));
+sub_module2 U2 (.a(n1), .b(1'b0) , .y(n2));
+sub_module2 U3 (.a(b), .b(d) , .y(n3));
+
+assign y = c | (b & n1); 
+
+
+endmodule
+```
+<div align="center">
+  <img src="Images/multiple_opt.png" width="70%">
+</div>
+
+### Lab 6
+
+#### dff-const-1
+**Gtk-Wave Output** 
+
+<div align="center">
+  <img src="Images/dff_const1-gtk.png" width="70%">
+</div>
+
+**Synthesis output**
+
+<div align="center">
+  <img src="Images/synth-const1.png" width="70%">
+</div>
+
+### Lab 7
+
+#### dff-const-2
+**Gtk-Wave Output** 
+
+<div align="center">
+  <img src="Images/const-2-gtk.png" width="70%">
+</div>
+
+**Synthesis output**
+
+<div align="center">
+  <img src="Images/synth-const-2.png" width="70%">
+</div>
+
+### Lab 8
+
+#### dff-const-3
+**Gtk-Wave Output** 
+
+<div align="center">
+  <img src="Images/const-gtk-3.png" width="70%">
+</div>
+
+**Synthesis output**
+
+<div align="center">
+  <img src="Images/syth-const-3.png" width="70%">
+</div>
+
+### Lab 9
+
+#### dff-const-4
+**Gtk-Wave Output** 
+
+<div align="center">
+  <img src="Images/const4-gtk.png" width="70%">
+</div>
+
+**Synthesis output**
+
+<div align="center">
+  <img src="Images/synth-const-4.png" width="70%">
+</div>
+
+### Lab 10
+
+#### dff-const-5
+**Gtk-Wave Output** 
+
+<div align="center">
+  <img src="Images/gtk-const5.png" width="70%">
+</div>
+
+**Synthesis output**
+
+<div align="center">
+  <img src="Images/synth-const-5.png" width="70%">
+</div>
+
+## Sequantial Unused output labs 
+
+### Lab 11
+
+#### COunter-opt
+**Sunthesis** 
+
+<div align="center">
+  <img src="Images/counter-opt.png" width="70%">
+</div>
+
+**Synthesis output**
+
+<div align="center">
+  <img src="Images/synth-counter.png" width="70%">
+</div>
+
+## Summary 
+
+In this chapter, we explored the powerful techniques of **combinational and sequential optimizations** that help refine RTL designs into more efficient hardware.  
+
+- On the **combinational side**, we looked at methods like **constant propagation** and **Boolean simplification**, which streamline logic expressions, remove redundant gates, and shorten critical paths. These optimizations directly improve circuit speed, reduce area, and lower power usage.  
+
+- On the **sequential side**, we examined techniques such as **state optimization**, **cloning**, and **retiming**. These methods focus on storage elements and timing paths, aiming to reduce unnecessary registers, balance logic delays, and handle high-fanout issues effectively. Sequential optimizations are especially important for large-scale digital systems where timing closure and area efficiency are critical.  
+
+Together, these optimization techniques demonstrate how synthesis tools not only translate RTL into gates but also **reshape and refine the design** to achieve better performance, smaller area, and improved power efficiency.  
+
+This chapter builds the foundation for writing RTL that is not only functionally correct but also **optimized for real-world hardware implementation**.
 
 
 
