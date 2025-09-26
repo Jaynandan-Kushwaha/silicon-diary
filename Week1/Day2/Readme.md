@@ -63,9 +63,39 @@ That’s why libraries include multiple PVT corners, such as:
 By using different libraries, designers can **test robustness**, ensuring the chip works reliably across all real-world conditions.  
 
 <div align="center">
-  <img src="Images/Lib-file" alt="lib-file.png" width="70%">
+  <img src="Images/Lib-file.png" alt="Lib-file.png" width="70%">
 </div>
 <div align="center">
-  <img src="Images/Lecture1" alt="lecture1.png" width="70%">
+  <img src="Images/Lecture1.png" alt="Lecture1.png" width="70%">
 </div>
 In this lecture they explain about Process Voltage and temprature how on these terms are important in silicon design work and this PVT tell how fast and slow our silicon will work 
+---
+
+In part 2 and 3 we discuss about verious information stored in .lib file technology used, volatge power leakage in cells and many more thing specially area how it differs on increasing cells in combinational ckt and about power leakage 
+
+---
+
+## Hierarchical vs Flat Synthesis
+
+### Hierarchical Synthesis
+
+**Overview:**  
+Hierarchical synthesis is a design strategy where each module in the RTL is **synthesized individually**, maintaining the original hierarchy rather than flattening the design into a single block.
+
+**Workflow:**  
+Tools like **Yosys** handle each module separately. Using commands like `hierarchy`, the tool **maps out the structure of the design**, ensuring that module boundaries are preserved throughout the synthesis process.
+
+**Benefits:**  
+- **Speeds up synthesis** for large-scale designs by processing modules independently.  
+- **Simplifies debugging**, as issues can be traced within individual modules.  
+- **Supports modular design**, making it easier to integrate with other tools or IP blocks.
+
+**Drawbacks:**  
+- **Cross-module optimizations are limited**, which might reduce overall performance.  
+- **Reports may require extra setup**, since hierarchical structures are not always captured automatically.
+
+#### Here is one exapmle we synthesis multipul module.v file and understand the synthesisation behind the tool
+
+
+
+
