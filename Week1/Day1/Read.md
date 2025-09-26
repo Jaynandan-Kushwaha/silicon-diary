@@ -273,7 +273,19 @@ Let’s synthesize the `good_mux` design using Yosys!
     ```
 
 <div align="center">
-  <img src="Good-mux-synthesis.png" alt="Good-mux-synthesis.png" width="70%">
+  <img src="Images/Good-mux-synthesis.png" alt="Good-mux-synthesis.png" width="70%">
 </div>
 
 ---
+## 7. Summary
+
+- We explored how **simulators** work and why they are essential in testing digital designs.  
+- We understood the role of a **testbench** and how it drives and verifies a design in simulation.  
+- We performed our **first Verilog simulation** using `iverilog` and observed outputs through waveforms.  
+- We broke down the working of a **Good_Mux** and analyzed its Verilog code.  
+- We got introduced to **Yosys**, learning how it performs synthesis and how different **gate library flavors** help balance speed, power, and area.
+---
+
+#### Thats all what we learned in day 1 
+
+I attended every lecture in time but due to health issues i wasnt able to write github notes on that day itself but i was consistent everyday and did my all task everyday 
