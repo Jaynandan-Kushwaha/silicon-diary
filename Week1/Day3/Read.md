@@ -270,6 +270,30 @@ endmodule
 </div>
 
 ### Lab 6
+Verilog code:
+
+```verilog
+module sub_module(input a , input b , output y);
+ assign y = a & b;
+endmodule
+
+
+
+module multiple_module_opt2(input a , input b , input c , input d , output y);
+wire n1,n2,n3;
+
+sub_module U1 (.a(a) , .b(1'b0) , .y(n1));
+sub_module U2 (.a(b), .b(c) , .y(n2));
+sub_module U3 (.a(n2), .b(d) , .y(n3));
+sub_module U4 (.a(n3), .b(n1) , .y(y));
+
+
+endmodule
+```
+<div align="center">
+  <img src="Images/multiple_module_opt2.png" width="70%">
+</div>
+### Lab 7
 
 #### dff-const-1
 **Gtk-Wave Output** 
@@ -284,7 +308,7 @@ endmodule
   <img src="Images/synth-const1.png" width="70%">
 </div>
 
-### Lab 7
+### Lab 8
 
 #### dff-const-2
 **Gtk-Wave Output** 
@@ -299,7 +323,7 @@ endmodule
   <img src="Images/synth-const-2.png" width="70%">
 </div>
 
-### Lab 8
+### Lab 9
 
 #### dff-const-3
 **Gtk-Wave Output** 
@@ -314,7 +338,7 @@ endmodule
   <img src="Images/syth-const-3.png" width="70%">
 </div>
 
-### Lab 9
+### Lab 10
 
 #### dff-const-4
 **Gtk-Wave Output** 
@@ -329,7 +353,7 @@ endmodule
   <img src="Images/synth-const-4.png" width="70%">
 </div>
 
-### Lab 10
+### Lab 11
 
 #### dff-const-5
 **Gtk-Wave Output** 
@@ -346,7 +370,7 @@ endmodule
 
 ## Sequantial Unused output labs 
 
-### Lab 11
+### Lab 12
 
 #### COunter-opt
 **Sunthesis** 
