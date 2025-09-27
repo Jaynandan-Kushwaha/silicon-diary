@@ -60,11 +60,11 @@ This repo is organized into **5 days of learning and labs**:
 
 | 📅 Day | 📝 Focus Area | 🔗 Link |
 |-------|---------------|---------|
-| 1️⃣ | Verilog RTL Basics & Synthesis | [Day_1](Day_1/README.md) |
-| 2️⃣ | Timing Libraries & DFF Coding Styles | [Day_2](Day_2/README.md) |
-| 3️⃣ | Combinational + Sequential Optimization | [Day_3](Day_3/README.md) |
-| 4️⃣ | Gate-Level Simulation & Verilog Nuances | [Day_4](Day_4/README.md) |
-| 5️⃣ | Advanced Synthesis Optimization | [Day_5](Day_5/README.md) |  
+| 1️⃣ | Verilog RTL Basics & Synthesis | [Day1](Day1/Read.md) |
+| 2️⃣ | Timing Libraries & DFF Coding Styles | [Day2](Day2/Readme.md) |
+| 3️⃣ | Combinational + Sequential Optimization | [Day3](Day3/Read.md) |
+| 4️⃣ | Gate-Level Simulation & Verilog Nuances | [Day4](Day4/Readme.md) |
+| 5️⃣ | Advanced Synthesis Optimization | [Day5](Day5/Readme.md) |  
 
 🔎 Each day includes:  
 ✔️ Explanations with visuals  
