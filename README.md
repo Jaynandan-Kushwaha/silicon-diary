@@ -27,9 +27,10 @@ from writing **C models → RTL design → SoC integration → Physical Design (
 
 ## 📅 Daily Progress Tracker  
 
-| Day | Topics Covered | Link |
+| Week | Topics Covered | Link |
 |-----|----------------|------|
 | 0   | 🛠️ Tools Installation & Environment Setup | [Day0](Day0/README.md) |
+| 1   |  🚀 RTL Design & Synthesis Workshop — Sky130 Edition | [Week1](Week1/Readme.md)|
 
 *(This tracker will keep growing as my journey continues ✅)*  
 
