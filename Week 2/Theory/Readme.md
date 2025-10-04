@@ -145,7 +145,7 @@ The **RVMYTH core** is the heart of BabySoC.
 It represents the **logic and decision-making hub** of the SoC.  
 
 📌 **Block Diagram of CPU Core (Placeholder)**  
-![RVMYTH CPU Block Diagram](images/rvmyth_cpu.png)  
+![RVMYTH CPU Block Diagram](Images/babysoc.jpg)  
 
 ---
 
