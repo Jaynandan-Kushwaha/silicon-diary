@@ -144,7 +144,7 @@ The **RVMYTH core** is the heart of BabySoC.
 
 It represents the **logic and decision-making hub** of the SoC.  
 
-📌 **Block Diagram of CPU Core (Placeholder)**  
+📌 **Block Diagram of CPU Core**  
 ![RVMYTH CPU Block Diagram](Images/babysoc.jpg)  
 
 ---
@@ -160,7 +160,7 @@ A **Phase-Locked Loop (PLL)** is a fundamental circuit in SoCs that ensures ever
 
 The PLL works in a feedback loop, “locking” the output frequency and phase to the reference clock.  
 
-📌 **Block Diagram of PLL (Placeholder)**  
+📌 **Block Diagram of PLL**  
 ![PLL Block Diagram](Images/pll.png)  
 
 ---
@@ -177,7 +177,7 @@ A **DAC** converts binary values (0s and 1s) into real-world analog signals.
 - **Weighted Resistor DAC** – each bit has a weighted resistor (simple, but impractical at high resolution).  
 - **R-2R Ladder DAC** – uses repeating resistors, scalable and stable.  
 
-📌 **Block Diagram of DAC (Placeholder)**  
+📌 **Block Diagram of DAC**  
 ![DAC Block Diagram](Images/dac.webp)  
 
 ---
@@ -199,8 +199,8 @@ A **DAC** converts binary values (0s and 1s) into real-world analog signals.
    - Converts them into analog voltages.  
    - Output is written to a file (`OUT`) or connected to external devices.  
 
-📌 **BabySoC Top-Level Block Diagram (Placeholder)**  
-![BabySoC Block Diagram](images/babysoc_block.png)  
+📌 **BabySoC Top-Level Block Diagram**  
+![BabySoC Block Diagram](Images/topblock.png)  
 
 👉 The end result: **Binary → Instructions → Registers → DAC → Analog Signals** 🎵📺  
 
@@ -227,6 +227,7 @@ A **DAC** converts binary values (0s and 1s) into real-world analog signals.
 
 ---
 
-👨‍💻 **Author:** Your Name  
+👨‍💻 **Author:** Jaynandan Kushwaha
+
 🔗 **Tech Stack:** RISC-V | Sky130 | PLL | DAC | Open-Source SoC  
 📂 **Category:** Educational / Embedded SoC  
