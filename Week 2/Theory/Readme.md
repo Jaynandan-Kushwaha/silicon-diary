@@ -161,7 +161,7 @@ A **Phase-Locked Loop (PLL)** is a fundamental circuit in SoCs that ensures ever
 The PLL works in a feedback loop, “locking” the output frequency and phase to the reference clock.  
 
 📌 **Block Diagram of PLL (Placeholder)**  
-![PLL Block Diagram](images/pll_block.png)  
+![PLL Block Diagram](Images/pll.png)  
 
 ---
 
@@ -178,7 +178,7 @@ A **DAC** converts binary values (0s and 1s) into real-world analog signals.
 - **R-2R Ladder DAC** – uses repeating resistors, scalable and stable.  
 
 📌 **Block Diagram of DAC (Placeholder)**  
-![DAC Block Diagram](images/dac_block.png)  
+![DAC Block Diagram](Images/dac.webp)  
 
 ---
 
