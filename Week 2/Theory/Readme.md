@@ -105,3 +105,128 @@ A **System on Chip** combines multiple computing and communication blocks into a
 - ⏱️ **PLL** → Stable high-speed clock management.  
 - 🎚️ **DAC** → Digital-to-Analog conversion.  
 
+## SoC Design Flow
+
+<div align="center">
+  <img src="Images/soc design flow.webp" alt="Testbench" width="70%">
+</div>
+
+# 🌱 VSDBabySoC – A Beginner-Friendly System-on-Chip Journey  
+
+Welcome to **VSDBabySoC** – a compact yet powerful **System on Chip (SoC)** designed not just as a project, but as a **learning adventure** into the world of chip design.  
+
+Built on the open-source **RISC-V architecture**, BabySoC brings together three essential building blocks:  
+- 🖥️ **RVMYTH CPU** → the digital brain  
+- ⏱️ **Phase-Locked Loop (PLL)** → the clock keeper  
+- 🎚️ **10-bit DAC** → the digital-to-analog bridge  
+
+Its primary goal is **simple yet ambitious**: to allow simultaneous testing of three open-source IP cores for the first time, while also calibrating and experimenting with analog components. Think of it as a **mini-laboratory on silicon** where digital logic meets real-world analog signals.  
+
+---
+
+## ✨ Why BabySoC?  
+We live in a world where SoCs run **everything** – from smartphones to wearables, from TVs to cars. Yet, understanding how all those moving parts come together can feel overwhelming.  
+
+BabySoC breaks it down into digestible building blocks:  
+- A **RISC-V processor** (RVMYTH) for executing instructions and cycling through registers.  
+- A **PLL** that generates clean, synchronized clocks to drive the CPU and peripherals.  
+- A **DAC** that takes binary data and turns it into smooth analog waveforms (sound, light, video).  
+
+---
+
+## 🧩 BabySoC Components  
+
+### 🔹 RVMYTH (RISC-V CPU)  
+The **RVMYTH core** is the heart of BabySoC.  
+- Based on the open-source RISC-V ISA.  
+- Executes instructions, manages registers, and cycles through data.  
+- For this project, values in **register r17** are prepared and sent to the DAC for conversion.  
+
+It represents the **logic and decision-making hub** of the SoC.  
+
+📌 **Block Diagram of CPU Core (Placeholder)**  
+![RVMYTH CPU Block Diagram](images/rvmyth_cpu.png)  
+
+---
+
+### 🔹 Phase-Locked Loop (PLL) – *The Clock Keeper*  
+A **Phase-Locked Loop (PLL)** is a fundamental circuit in SoCs that ensures everything runs in rhythm.  
+
+#### ⚙️ How PLL Works  
+1. **Phase Detector (PD):** Compares the phase of the input clock (reference) with the output clock from the oscillator.  
+2. **Loop Filter (LF):** Removes noise from the phase error signal, producing a smooth control voltage.  
+3. **Voltage-Controlled Oscillator (VCO):** Adjusts its frequency based on the control voltage, ensuring the output frequency matches the reference.  
+4. **Divider (optional):** Generates higher or lower multiples of the reference.  
+
+The PLL works in a feedback loop, “locking” the output frequency and phase to the reference clock.  
+
+📌 **Block Diagram of PLL (Placeholder)**  
+![PLL Block Diagram](images/pll_block.png)  
+
+---
+
+### 🔹 Digital-to-Analog Converter (DAC) – *The Digital–Analog Bridge*  
+A **DAC** converts binary values (0s and 1s) into real-world analog signals.  
+
+#### ⚙️ How DAC Works  
+1. **Digital Input:** A binary number (10 bits in BabySoC).  
+2. **Conversion Circuit:** Uses resistor ladders (R-2R) or weighted resistors.  
+3. **Analog Output:** A voltage/current proportional to the input value.  
+
+#### 🔎 DAC Architectures  
+- **Weighted Resistor DAC** – each bit has a weighted resistor (simple, but impractical at high resolution).  
+- **R-2R Ladder DAC** – uses repeating resistors, scalable and stable.  
+
+📌 **Block Diagram of DAC (Placeholder)**  
+![DAC Block Diagram](images/dac_block.png)  
+
+---
+
+## ⚙️ How BabySoC Works (Step by Step)  
+
+1. **Initialization & Clocking**  
+   - BabySoC receives an input clock.  
+   - The **PLL multiplies and stabilizes** it.  
+   - The synchronized clock feeds both CPU and DAC.  
+
+2. **Data Processing with RVMYTH**  
+   - The CPU executes instructions.  
+   - Updates values in register **r17** with new data.  
+   - Prepares digital values for conversion.  
+
+3. **Digital-to-Analog Conversion**  
+   - The DAC receives the digital values.  
+   - Converts them into analog voltages.  
+   - Output is written to a file (`OUT`) or connected to external devices.  
+
+📌 **BabySoC Top-Level Block Diagram (Placeholder)**  
+![BabySoC Block Diagram](images/babysoc_block.png)  
+
+👉 The end result: **Binary → Instructions → Registers → DAC → Analog Signals** 🎵📺  
+
+---
+
+💡 **BabySoC fits in the Educational/Embedded SoC category** — focused on teaching SoC design fundamentals and experimenting with digital–analog integration.  
+
+---
+
+
+## 🎯 In Summary  
+
+- **VSDBabySoC** integrates:  
+  - 🖥️ **RVMYTH CPU** (logic and control)  
+  - ⏱️ **PLL** (stable timing)  
+  - 🎚️ **DAC** (analog bridge)  
+
+- It provides a hands-on platform to:  
+  - Learn **SoC fundamentals**.  
+  - Explore how **digital and analog worlds interact**.  
+  - Experiment with **real, open-source IP cores**.  
+
+✨ BabySoC isn’t just a circuit — it’s your **first step into the world of chip design**.  
+
+---
+
+👨‍💻 **Author:** Your Name  
+🔗 **Tech Stack:** RISC-V | Sky130 | PLL | DAC | Open-Source SoC  
+📂 **Category:** Educational / Embedded SoC  
