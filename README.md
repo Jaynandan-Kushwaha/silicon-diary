@@ -31,7 +31,7 @@ from writing **C models → RTL design → SoC integration → Physical Design (
 |-----|----------------|------|
 | 0   | 🛠️ Tools Installation & Environment Setup | [Day0](Day0/README.md) |
 | 1   |  🚀 RTL Design & Synthesis Workshop — Sky130 Edition | [Week1](Week1/Readme.md)|
-
+| 2 |  Week 2 — BabySoC Fundamentals & Functional Modelling| [Week2](Week1/Readme.md) |
 *(This tracker will keep growing as my journey continues ✅)*  
 
 ---
