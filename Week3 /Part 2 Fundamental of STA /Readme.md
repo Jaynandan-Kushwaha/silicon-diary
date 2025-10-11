@@ -100,3 +100,4 @@ This model allows STA to analyze all timing paths quickly and identify critical 
 
 ---
 
+### all important concept images are in image folderso you can refre them for better understanding 
