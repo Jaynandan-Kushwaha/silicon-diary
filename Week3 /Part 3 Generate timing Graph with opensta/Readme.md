@@ -75,7 +75,7 @@ docker run -i -v $HOME:/data opensta
 ```
 
 
-![WhatsApp Image 2024-12-07 at 9 37 03 AM](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week3%20/Part%203%20Generate%20timing%20Graph%20with%20opensta/Images/Screenshot%20from%202025-10-11%2020-21-52.png)
+![WhatsApp Image ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week3%20/Part%203%20Generate%20timing%20Graph%20with%20opensta/Images/Screenshot%20from%202025-10-11%2020-21-52.png)
 
 
 ## Static timing analysis using OpenSTA
@@ -88,7 +88,7 @@ create_clock -name clk -period 10 {clk1 clk2 clk3}
 set_input_delay -clock clk 0 {in1 in2}
 report_checks
 ```
-![WhatsApp Image 2024-12-07 at 9 14 09 AM](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week3%20/Part%203%20Generate%20timing%20Graph%20with%20opensta/Images/Screenshot%20from%202025-10-11%2019-27-24.png)
+![WhatsApp Image ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week3%20/Part%203%20Generate%20timing%20Graph%20with%20opensta/Images/Screenshot%20from%202025-10-11%2019-27-24.png)
 
 
 #### VSDBabySoC basic timing analysis
@@ -126,8 +126,8 @@ report_tns
 report_wns
 ```
      
-![WhatsApp Image 2024-12-07 at 9 14 08 AM (4)](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week3%20/Part%203%20Generate%20timing%20Graph%20with%20opensta/Images/Screenshot%20from%202025-10-11%2019-46-33.png)
-![WhatsApp Image 2024-12-07 at 9 14 07 AM](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week3%20/Part%203%20Generate%20timing%20Graph%20with%20opensta/Images/Screenshot%20from%202025-10-11%2019-47-22.png)
+![WhatsApp Image )](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week3%20/Part%203%20Generate%20timing%20Graph%20with%20opensta/Images/Screenshot%20from%202025-10-11%2019-46-33.png)
+![WhatsApp Image ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week3%20/Part%203%20Generate%20timing%20Graph%20with%20opensta/Images/Screenshot%20from%202025-10-11%2019-47-22.png)
 
 here slack is positive mean we are in safer side 
 
