@@ -1,167 +1,154 @@
-# ⚡ Day 1 — Basics of NMOS Drain Current (Id) vs Drain-to-Source Voltage (Vds)
+# ⚡ Day 1 — NMOS Drain Current (Id) vs Drain-to-Source Voltage (Vds)
 
-Welcome to **Day 1** of the NgspiceSky130 module!  
-This day marks the starting point of your journey into **transistor-level circuit design and simulation**.  
-We begin by understanding the core device that powers all CMOS circuits — the **NMOS transistor** — and explore how its electrical behavior changes with different biasing conditions using **SPICE simulations**.
-
----
-
-## 🎯 What You’ll Learn
-
-Today’s session is divided into three major parts that together build the foundation for CMOS-level analysis:
-
-### 🧩 1. Introduction to Circuit Design and SPICE Simulations  
-
-We start with the basics — understanding why we need SPICE simulations and how they help in predicting real-world circuit performance before fabrication.  
-You’ll also revisit fundamental elements of circuit design, focusing on **NMOS operation**, **threshold voltage**, and how **substrate bias** affects transistor behavior.  
-
-Topics covered:
-- Why SPICE simulations are essential  
-- Basic elements of circuit design — NMOS  
-- Strong inversion and threshold voltage  
-- Threshold voltage with positive substrate potential  
+Welcome to **Day 1** of the **NgspiceSky130 learning series**!  
+This day begins your journey into **transistor-level design and SPICE simulation** using the open-source **Sky130 PDK**.  
+We’ll explore the electrical behavior of the **NMOS transistor** and understand how **drain current (Id)** varies with **drain-to-source voltage (Vds)** under different gate bias conditions.
 
 ---
 
-### ⚙️ 2. NMOS Resistive and Saturation Regions of Operation  
+## 🎯 Learning Objectives
 
-Once we understand the physical structure and basic theory, we move into the **operating regions** of an NMOS transistor.  
-Here, we study how the **drain current (Id)** changes with **drain-to-source voltage (Vds)** and **gate-to-source voltage (Vgs)**.  
+By the end of this session, you will:
 
-This section gives you a clear view of how transistors transition from **linear (resistive)** to **saturation** mode — the key to designing amplifiers, switches, and logic gates.
-
-Key concepts:
-- Resistive region of operation (small Vds)  
-- Drift current theory  
-- Drain current model for linear region  
-- Pinch-off condition and channel formation  
-- Drain current model for saturation region  
-- SPICE simulation results for both regions  
-
-By the end of this section, you’ll be able to **plot Id–Vds characteristics** and identify the operating region of a MOSFET from its graph — an essential skill for analog and digital designers alike.
+- Understand why SPICE simulations are essential in circuit design.  
+- Explore NMOS transistor fundamentals and body effect.  
+- Analyze **linear (resistive)** and **saturation** regions of NMOS operation.  
+- Simulate and plot **Id–Vds characteristics** using Sky130 SPICE models.
 
 ---
 
-### 🧠 3. Introduction to SPICE  
+## 🧩 1. Introduction to Circuit Design and SPICE Simulations  
 
-In this final segment, you’ll learn how to bring theory to life through simulation.  
-This includes creating your first **SPICE netlist**, defining transistor parameters, and running basic DC analysis using the **Sky130 PDK models**.  
+SPICE (Simulation Program with Integrated Circuit Emphasis) is a powerful tool for **predicting circuit performance** before fabrication.  
+It allows us to simulate device behavior, verify electrical parameters, and visualize circuit responses to different inputs.
 
-You’ll also understand how each section of the SPICE file works — from defining circuit nodes to specifying transistor models and simulation commands.
-
-You’ll perform:  
-- Basic SPICE setup and syntax  
-- Writing NMOS circuits using Sky130 models  
-- Defining technology parameters (W/L, model names)  
-- Running first SPICE simulations  
-- Observing Id–Vds behavior through waveform outputs  
+Key Topics:
+- Purpose and advantages of SPICE simulations  
+- Basics of NMOS structure and operation  
+- Threshold voltage and strong inversion  
+- Substrate (body) bias and threshold variation  
 
 ---
 
-## 💡 Why Do We Need SPICE Simulations?
+### 📘 Why SPICE?
 
-SPICE simulations help us **verify a circuit’s behavior** before it’s ever built in hardware.  
-In circuit design, logic gates such as **NAND**, **NOR**, and **NOT** are constructed using combinations of **NMOS** and **PMOS** transistors.  
+In circuit design, SPICE provides a **virtual lab environment** that replicates real-world device behavior.  
+For instance, consider a CMOS **inverter**:
 
-For example, in an **inverter** circuit:
-- The **drains** of the PMOS (pull-up) and NMOS (pull-down) connect together at the **output node**, which typically drives a capacitive load.  
-- The **gates** of both transistors share the same **input signal**.  
-- The **source** of the PMOS is tied to **VDD**, while the NMOS source connects to **GND**.  
+- The **PMOS** (pull-up) and **NMOS** (pull-down) share a common output node.  
+- Their **gates** receive the same input, ensuring complementary operation.  
+- The **output** switches between **VDD** and **GND**, producing logical inversion.
 
-This configuration ensures one transistor is ON while the other is OFF, producing a clear logical inversion at the output.  
-
-SPICE simulations allow us to confirm that the circuit operates as expected — verifying **functionality**, **timing**, and **power behavior** before moving to fabrication.  
+SPICE allows designers to confirm correct switching behavior, analyze **propagation delays**, and study **power consumption** before committing to silicon fabrication.
 
 ---
 
-## 🔍 SPICE Simulation  
+## ⚙️ 2. NMOS Device Fundamentals  
 
-SPICE acts like a **virtual test lab** for electronic design.  
-It enables us to test, analyze, and optimize circuits by simulating how voltages and currents behave over time.  
+### 🧠 Understanding the NMOS Transistor
 
-For example, when we provide an **input waveform** to a circuit, SPICE generates the **output waveform**, allowing us to observe how the circuit responds dynamically.  
-From these results, we can measure critical parameters such as:
-- **Propagation delay**  
-- **Rise and fall times**  
-- **Current flow** and **power usage**
+An **NMOS transistor** conducts when a **positive gate voltage (Vgs)** exceeds the **threshold voltage (Vt)**.  
+This voltage induces a conductive channel between **drain** and **source**, allowing current flow.
 
-By adjusting transistor parameters like **width (W)** and **length (L)**, designers can control the **drain current (Id)**, which directly affects delay and circuit speed.  
-This makes SPICE an essential tool for **fine-tuning performance** and ensuring the design behaves efficiently under real-world conditions.
+![NMOS Structure](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-13%20235455.png)
 
-💡 *In short, SPICE bridges the gap between mathematical models and actual hardware — giving us confidence before we ever power on a chip.*
+**Key Parameters:**
+- **Vt (Threshold Voltage):** Minimum gate voltage required to form an inversion channel.  
+- **Strong Inversion:** Region where the induced channel is fully formed and current flow maximizes.  
+- **Body Effect:** Variation of threshold voltage due to substrate potential (Vsb).  
 
 ---
 
-![Screenshot ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-13%20234135.png)
+### ⚡ Threshold Voltage and Body Effect
+
+The threshold voltage is not constant — it changes with substrate bias (Vsb).  
+SPICE models use parameters such as **body-effect coefficient (γ)** and **Fermi potential (ΦF)** to calculate this variation.
+
+| Parameter | Description |
+|------------|-------------|
+| Vt0 | Threshold voltage when Vsb = 0 |
+| γ (Gamma) | Body effect coefficient |
+| ΦF | Fermi potential (process-dependent) |
+
+These are foundry-defined parameters embedded in the **Sky130 model files** to ensure simulation accuracy.
+
+![Threshold Variation](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-14%20004240.png)
 
 ---
 
-## ⚙️ Introduction to Basic Circuit Element — NMOS Transistor
+## 📊 3. NMOS Operation Regions  
 
-**NMOS Transistor:**  
-An N-type Metal-Oxide-Semiconductor that conducts when a **positive voltage** is applied to its **gate**, allowing current to flow from **drain to source**.
-
-![Screenshot ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-13%20235455.png)
-
-### Key Parameters:
-- **Threshold Voltage (Vt):** The voltage at which the transistor begins to conduct current.  
-- **Strong Inversion:** When the channel forms fully and allows maximum current flow.  
-- **Body Effect:** The variation of threshold voltage due to changes in substrate potential.  
-
-![Screenshot ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-14%20000529.png)
-
-#### Considering Potential to Body Terminal
-
-![Screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-14%20001859.png)
-![Screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-14%20002358.png)
-![Screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-14%20002532.png)
-
-- **Threshold Voltage at Vsb = 0:** The threshold when the source-to-body voltage is zero.  
-- **Body Effect Coefficient and Fermi Potential:** Parameters defined by the foundry and used in SPICE models to simulate accurate transistor characteristics.  
-
-![Screenshot ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-14%20004240.png)
+The NMOS transistor operates in two major regions based on **Vds** and **Vgs**:
 
 ---
 
-## 📊 NMOS Resistive and Saturation Regions of Operation  
+### 🔹 (a) Resistive / Linear Region
 
-**Resistive Region (Linear Mode):**  
-Occurs when **Vds** is small and the channel is uniformly formed — the transistor behaves like a resistor.  
+Occurs when **Vds < (Vgs - Vt)**.  
+Here, the channel is continuous, and the transistor behaves like a **voltage-controlled resistor**.
 
-![Screenshot ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-15%20004825.png)
-![Screenshot ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-15%20005943.png)
+![Linear Region](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-15%20004825.png)
 
-**Key Concepts:**
-- **Drift Current:** Caused by the electric field across the device.  
-- **Diffusion Current:** Due to carrier concentration differences.  
-- **Cox:** Oxide capacitance value provided by the foundry.  
+**Current Equation:**
+\[
+I_d = μ_n C_{ox} \frac{W}{L} [(V_{gs} - V_t)V_{ds} - \frac{V_{ds}^2}{2}]
+\]
 
+Where:
+- **μn:** Electron mobility  
+- **Cox:** Oxide capacitance per unit area  
+- **W/L:** Width-to-length ratio of the MOSFET  
 
+![Drift-Diffusion Model](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-15%20230408.png)
 
-### Drain Current Model (Linear Region)
-![Screenshot ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-15%20230408.png)
-![Screenshot ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-15%20230740.png)
-
-**SPICE Conclusion for Resistive Region:**  
-SPICE sweeps **Vds** for each **Vgs** value to calculate **Id** until **Vds = Vgs - Vt**.  
-The resulting **Id–Vds** plots help visualize linear behavior and identify the transition to saturation.
+The **drain current (Id)** increases linearly with **Vds**, forming the initial slope in the Id–Vds plot.
 
 ---
 
-### Saturation (Pinch-off) Region  
+**SPICE Observation (Resistive Mode):**  
+In simulation, for each **Vgs** value, **Vds** is swept, and Id is plotted.  
+As **Vds** approaches **Vgs - Vt**, the linear behavior transitions into saturation.
 
-In the **saturation region**, the transistor channel is pinched off near the drain, and **Id** becomes nearly constant, depending only on **Vgs**.  
-This condition is met when **Vds ≥ Vgs - Vt**.  
-
-![Screenshot ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-16%20002723.png)
-![Screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-16%20003014.png)
-![Screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-16%20003228.png)
-![Screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-16%20004407.png)
-![Screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-16%20004639.png)
-
-
+![Resistive SPICE Curve](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-15%20230740.png)
 
 ---
+
+### 🔹 (b) Saturation / Pinch-off Region
+
+Occurs when **Vds ≥ (Vgs - Vt)**.  
+The channel pinches off near the drain, and current becomes almost constant.
+
+![Saturation Concept](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-16%20002723.png)
+
+**Current Equation:**
+\[
+I_d = \frac{1}{2} μ_n C_{ox} \frac{W}{L} (V_{gs} - V_t)^2
+\]
+
+Here, **Id** is primarily controlled by **Vgs**, making this region essential for analog amplifiers and current sources.
+
+![Saturation Graphs](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-16%20004407.png)
+
+**SPICE Observation (Saturation Mode):**
+- Id saturates with increasing Vds.  
+- The saturation level rises with higher Vgs values.  
+- The transition point (**Vds = Vgs - Vt**) is clearly visible in the simulated plots.
+
+![SPICE Saturation Curves](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-16%20004639.png)
+
+---
+
+## 🧪 4. Introduction to SPICE Simulation Setup  
+
+SPICE simulation bridges **theory** and **practical device behavior**.  
+A typical SPICE file contains:
+
+1. **Circuit Elements:** Transistors, voltage sources, and resistors.  
+2. **Device Parameters:** Model files (Sky130 NMOS/PMOS) and geometry (W/L).  
+3. **Analysis Commands:** `.dc`, `.tran`, `.ac`, etc. for different simulations.  
+
+Example (Conceptual):
+
 
 ## 🧩 SPICE Netlist Example or Spice setup
 
@@ -213,6 +200,13 @@ This circuit defines all the essential components, parameters, and node connecti
 ![Screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-16%20112124.png)
 ![Screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%202025-10-16%20112844.png)
 
+## 🧾 Summary
+
+| Concept | Description |
+|----------|--------------|
+| **Resistive Region** | Transistor acts as a resistor; Id ∝ Vds |
+| **Saturation Region** | Id becomes constant; controlled by Vgs |
+| **Threshold Voltage** | Minimum gate voltage for conduction |
 ---
 
 ## 🧪 LABS
@@ -251,11 +245,63 @@ You can download ngspice for Windows from the official source using the followin
     ngspice day1_nfet_idvds_L2_W5.spice
     plot -vdd#branch
 
-### output 
+## 📈 NMOS Id–Vds Simulation Output
+
+The following plots are obtained from SPICE simulations of an NMOS transistor using **Sky130 models**. They show how the **drain current (Id)** varies with **drain-to-source voltage (Vds)** for different gate voltages (Vgs).
+
+---
+
+### **1️⃣ Id vs Vds for Multiple Gate Voltages**
 
 ![Screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%20from%202025-10-17%2000-51-12.png)
+
+**Description:**
+- Shows **Id–Vds characteristics** for several Vgs values.  
+- At low Vds, Id increases linearly — the **resistive (linear) region**.  
+- At higher Vds, Id flattens — the **saturation region**.  
+- Higher Vgs produces higher Id, consistent with NMOS behavior.  
+- The transition from linear to saturation occurs approximately at **Vds = Vgs - Vt**.
+
+**Observation:**  
+This plot verifies the expected NMOS behavior and clearly distinguishes the linear and saturation regions.
+
+---
+
+### **2️⃣ Zoomed View of Linear Region**
+
 ![Screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%20from%202025-10-17%2000-56-46.png)
+
+**Description:**
+- Focused on the **low Vds region** of the NMOS.  
+- Illustrates that Id **increases almost linearly with Vds**.  
+- Confirms that in the linear region, the transistor behaves like a **voltage-controlled resistor**.  
+- The slope of each curve increases with higher Vgs, showing the effect of gate voltage on channel conductance.
+
+**Observation:**  
+The linear region is clearly visible, providing insight into how the device will behave in analog circuits or as a switch with small Vds.
+
+---
+
+### **3️⃣ Id vs Vds in Saturation Region**
+
 ![Screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day1/Images/Screenshot%20from%202025-10-17%2001-00-05.png)
+
+**Description:**
+- Focused on the **high Vds region**, where Id becomes nearly constant.  
+- Illustrates the **saturation region (pinch-off)** of the NMOS transistor.  
+- Id depends mostly on Vgs and shows minimal variation with further increase in Vds.  
+- Confirms the SPICE simulation results match theoretical predictions for the saturation current.
+
+**Observation:**  
+This plot helps understand current limiting in NMOS transistors, critical for analog design and current sources.
+
+---
+
+**Summary of Observations:**
+- **Linear region:** Id ∝ Vds, slope increases with Vgs.  
+- **Saturation region:** Id saturates, controlled mainly by Vgs.  
+- **Transition:** Occurs near Vds = Vgs - Vt.  
+- SPICE results align well with theoretical NMOS behavior.
 
 ## 📈 Outcome  
 
