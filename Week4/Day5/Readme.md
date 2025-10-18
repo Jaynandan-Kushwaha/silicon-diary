@@ -43,8 +43,10 @@ This approach helps visualize how supply scaling impacts both **logic integrity*
 
 4. **Transition Region Width:**  
    - The width of the transition region reduces when the supply voltage is scaled down from the original VDD.
-   ![Screenshot 2024-12-14 064131](https://github.com/user-attachments/assets/d6867666-b993-4fcc-80c3-b68bf2e70c33)
-   ![Screenshot 2024-12-14 064143](https://github.com/user-attachments/assets/63977762-4d62-41ac-bbe9-f5d596c9e75d)
+   ![Screenshot ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%202025-10-18%20160424.png)
+   ![Screenshot ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%202025-10-18%20160432.png)
+![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%202025-10-18%20163834.png)
+
 ### **Limitations of Operating at Low Supply Voltages**
 
 1. **Performance Degradation:**  
@@ -55,7 +57,7 @@ This approach helps visualize how supply scaling impacts both **logic integrity*
 
 3. **Reduced Signal Swing:**  
    - Scaling VDD reduces signal swing, lowering internal noise (e.g., crosstalk) but increasing sensitivity to external noise sources, which do not scale proportionally.
-![Screenshot 2024-12-14 064154](https://github.com/user-attachments/assets/43789076-775b-4629-901c-22ff3cbd6891)
+![Screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%202025-10-18%20164240.png)
 ### **CMOS Inverter Robustness to Device Variations**
 
 1. **Design vs. Real Operating Conditions:**  
@@ -67,19 +69,69 @@ This approach helps visualize how supply scaling impacts both **logic integrity*
 3. **Sources of Variation:**  
    - One common source of variation is the etching process during fabrication, which can affect device parameters.
    ### SOURCES OF ETCHING PROCESS
-![Screenshot 2024-12-14 064237](https://github.com/user-attachments/assets/37536703-156f-447e-a54b-a8f780b7eec3)
-![Screenshot 2024-12-14 064244](https://github.com/user-attachments/assets/6957d230-95ea-49e9-8aa6-7e0997b9169c)
-![Screenshot 2024-12-14 064256](https://github.com/user-attachments/assets/26d74cde-84b3-448d-ad3b-17614a6cdd4c)
-![Screenshot 2024-12-14 064307](https://github.com/user-attachments/assets/acefb5ff-0705-4f5f-a95c-071aa3e27857)
+![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%202025-10-18%20164934.png)
+![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%202025-10-18%20164940.png)
+![screenshot]()
+![screenshot]()
+![screenshot]()
 ### Sources of variation: Oxide Thickness
+![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%202025-10-18%20165000.png)
+![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%202025-10-18%20165039.png)
+![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%202025-10-18%20165151.png)
 ![Screenshot 2024-12-14 064317](https://github.com/user-attachments/assets/011ff2a9-1203-4501-a5ca-5c8d8f68d536)
 ![Screenshot 2024-12-14 064325](https://github.com/user-attachments/assets/f78cebab-3c33-45d5-af1f-7b3d1d6276b1)
+![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%202025-10-18%20165629.png)
+![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%202025-10-18%20165643.png)
+![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%202025-10-18%20165652.png)
+![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%202025-10-18%20165819.png)
+![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%202025-10-18%20165835.png)
+
 # LABS
 ## Static behavior evaluation: CMOS inverter robustness, Power supply variation
 ### Smart SPICE simulation for power supply variations
 
-![WhatsApp Image 2024-12-14 at 5 54 28 AM (1)](https://github.com/user-attachments/assets/6e264a52-15c6-4a99-a603-692e9b51b689)
-![WhatsApp Image 2024-12-14 at 5 54 28 AM](https://github.com/user-attachments/assets/6d89ba5d-aa04-42e6-b895-c2253399447c)
+```
+*Model Description
+.param temp=27
+
+
+*Including sky130 library files
+.lib "sky130_fd_pr/models/sky130.lib.spice" tt
+
+
+*Netlist Description
+
+
+XM1 out in vdd vdd sky130_fd_pr__pfet_01v8 w=1 l=0.15
+XM2 out in 0 0 sky130_fd_pr__nfet_01v8 w=0.36 l=0.15
+
+
+Cload out 0 50fF
+
+Vdd vdd 0 1.8V
+Vin in 0 1.8V
+
+.control
+
+let powersupply = 1.8
+alter Vdd = powersupply
+	let voltagesupplyvariation = 0
+	dowhile voltagesupplyvariation < 6
+	dc Vin 0 1.8 0.01
+	let powersupply = powersupply - 0.2
+	alter Vdd = powersupply
+	let voltagesupplyvariation = voltagesupplyvariation + 1
+      end
+ 
+plot dc1.out vs in dc2.out vs in dc3.out vs in dc4.out vs in dc5.out vs in dc6.out vs in xlabel "input voltage(V)" ylabel "output voltage(V)" title "Inveter dc characteristics as a function of supply voltage"
+
+.endc
+
+```
+
+![ Image ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%20from%202025-10-18%2022-09-24.png)
+![ Image ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%20from%202025-10-18%2022-10-46.png)
+
 
 
 ### **CMOS Inverter Robustness: Extreme Device Width Variation**
@@ -96,6 +148,46 @@ This approach helps visualize how supply scaling impacts both **logic integrity*
 - **Key Insight:**  
    The CMOS inverter exhibits robust static behavior, tolerating extreme width variations without functional failure.
 
-![Screenshot 2024-12-14 064110](https://github.com/user-attachments/assets/2ff1be23-c941-4053-bac2-caa191f08308)
-![WhatsApp Image 2024-12-14 at 5 54 29 AM](https://github.com/user-attachments/assets/ebc534a4-d0fc-42c4-916f-bc564a118478)
-![WhatsApp Image 2024-12-14 at 5 54 29 AM (1)](https://github.com/user-attachments/assets/eb560b25-1bbc-4e88-b2f7-d3af78af9d54)
+  
+```
+*Model Description
+.param temp=27
+
+
+*Including sky130 library files
+.lib "sky130_fd_pr/models/sky130.lib.spice" tt
+
+
+*Netlist Description
+
+
+XM1 out in vdd vdd sky130_fd_pr__pfet_01v8 w=7 l=0.15
+XM2 out in 0 0 sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
+
+
+Cload out 0 50fF
+
+Vdd vdd 0 1.8V
+Vin in 0 1.8V
+
+*simulation commands
+
+.op
+
+.dc Vin 0 1.8 0.01
+
+.control
+run
+setplot dc1
+display
+.endc
+
+.end
+
+```
+
+![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%20from%202025-10-18%2022-11-27.png)
+![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%20from%202025-10-18%2022-14-20.png)
+![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%20from%202025-10-18%2022-14-28.png)
+
+
