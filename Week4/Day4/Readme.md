@@ -1,28 +1,39 @@
-# **Static Behavior Evaluation: CMOS Inverter Robustness and Noise Margin**
+# ⚡ **Static Behavior Evaluation: CMOS Inverter Robustness and Noise Margin**
 
-### Understanding Noise Margin
-In digital circuits, **noise is inevitable** — small voltage spikes or fluctuations can sneak in due to interference, crosstalk, or power supply variations. A CMOS inverter’s **noise margin** defines its ability to **tolerate these disturbances** without misinterpreting a logic level. In simpler terms, it’s the **safety buffer** that ensures a '1' stays a '1' and a '0' stays a '0', even in the presence of noise.  
+### 🔹 Understanding Noise Margin
+In digital circuits, **noise is inevitable** — small voltage spikes or fluctuations can occur due to **interference, crosstalk, or power supply variations**.  
+A CMOS inverter’s **noise margin** defines its ability to **tolerate these disturbances** without misinterpreting a logic level.  
 
-If the noise is smaller than this margin, the inverter naturally **filters it out**, letting clean signals propagate through multiple logic stages without causing errors.
+In simple terms, it acts as a **safety buffer**:
 
----
-
-### Why Noise Margin Matters
-Noise margin is essential for **robust digital operation**, especially when connecting several gates in series:  
-
-- A logic-high signal (close to **VDD**) with small noise must still be recognized as **logic 1**.  
-- A logic-low signal (close to **0 V**) with small noise must still be recognized as **logic 0**.  
-
-By ensuring these conditions, CMOS circuits maintain **reliability** and **prevent logic corruption** in complex digital systems.
+- Ensures a **logic '1' remains '1'** and a **logic '0' remains '0'** even in the presence of noise.  
+- If the noise amplitude is smaller than the margin, the inverter naturally **filters it out**, allowing clean signals to propagate through multiple logic stages without errors.
 
 ---
 
-### Visualizing Noise Margin with VTC
-Consider **two CMOS inverters connected back-to-back**. The **Voltage Transfer Characteristic (VTC)** of the first inverter determines the input range where the second inverter interprets signals correctly.  
+### 🔹 Why Noise Margin Matters
+Noise margin is critical for **robust and reliable digital operation**, especially in circuits with **cascaded gates**:
 
-- **Ideal VTC:** Extremely sharp transition from low to high output, offering maximum noise immunity.  
-- **Piece-wise Linear VTC:** Simplified approximation highlighting critical switching points.  
-- **Realistic VTC:** Real-world simulation showing gradual transitions and non-ideal behavior.  
+- **Logic High (≈ VDD):** Small voltage fluctuations must still be recognized as **logic 1**.  
+- **Logic Low (≈ 0 V):** Small voltage fluctuations must still be recognized as **logic 0**.  
+
+> Ensuring adequate noise margins allows CMOS circuits to maintain **signal integrity**, prevent **logic corruption**, and operate reliably in complex digital systems.
+
+---
+
+
+### 🔹 Visualizing Noise Margin with VTC
+
+Consider **two CMOS inverters connected back-to-back**. The **Voltage Transfer Characteristic (VTC)** of the first inverter determines the **input voltage range** over which the second inverter correctly interprets signals.  
+
+- **Ideal VTC:** Exhibits an **extremely sharp transition** from low to high output, providing **maximum noise immunity**.  
+- **Piece-wise Linear VTC:** A simplified approximation highlighting **critical switching points**, useful for analytical analysis.  
+- **Realistic VTC:** Derived from **simulation or real measurements**, showing **gradual transitions** and **non-ideal effects**, reflecting real-world behavior.
+
+> Observing the VTC visually allows designers to **quantify noise margins** and ensure **robust operation** in cascaded CMOS logic circuits.
+
+---
+ 
 
 ![Noise Margin Illustration](https://github.com/user-attachments/assets/a33b8aeb-ae0d-43d9-ae48-7def565b38a7)
 
