@@ -186,6 +186,6 @@ display
 
 ![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%20from%202025-10-18%2022-11-27.png)
 ![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%20from%202025-10-18%2022-14-20.png)
-![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%20from%202025-10-18%2022-14-28.png)
+![screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week4/Day5/Image/Screenshot%20from%202025-10-18%2017-03-19.png)
 
 
