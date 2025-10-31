@@ -280,7 +280,7 @@ Let’s synthesize the `good_mux` design using Yosys!
 
 3. **Read the liberty library**
     ```shell
-    read_liberty -lib ..lib/sky130/file/sky130_fd_sc_hd__tt_025C_1v80.lib
+    read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
     ```
     Note:- everyone can have in different folder so check according to that where .lib file existing 
 
