@@ -296,7 +296,7 @@ Let’s synthesize the `good_mux` design using Yosys!
 
 6. **Technology mapping**
     ```shell
-    abc -liberty ..lib/sky130/file/sky130_fd_sc_hd__tt_025C_1v80.lib
+    abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
     ```
 
 7. **Visualize the gate-level netlist**
