@@ -603,17 +603,16 @@ run_synthesis
 
 Screenshots of commands run
 
-![Screenshot from 2024-03-24 15-36-46](https://github.com/fayizferosh/soc-design-and-planning-nasscom-vsd/assets/63997454/4170c3c5-1a95-4165-9461-03b298cc20ef)
-![Screenshot from 2024-03-24 15-37-32](https://github.com/fayizferosh/soc-design-and-planning-nasscom-vsd/assets/63997454/8f52942c-4b28-4abd-b9a0-d48f20a8255f)
-![Screenshot from 2024-03-24 15-37-44](https://github.com/fayizferosh/soc-design-and-planning-nasscom-vsd/assets/63997454/47849bfd-dc47-4d9c-9077-7fb672df4ead)
-![Screenshot from 2024-03-24 15-45-08](https://github.com/fayizferosh/soc-design-and-planning-nasscom-vsd/assets/63997454/0bc13ad3-d800-4681-b39d-8b64c9c9104f)
+![Screenshot 6](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week6/Images/Screenshot%20from%202025-11-11%2017-29-10.png)
+![Screenshot ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week6/Images/Screenshot%20from%202025-11-11%2017-32-59.png)
+![Screenshot ](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week6/Images/Screenshot%20from%202025-11-11%2017-50-47.png)
 
 #### 7. Remove/reduce the newly introduced violations with the introduction of custom inverter cell by modifying design parameters.
 
 Noting down current design values generated before modifying parameters to improve timing
 
-![Screenshot from 2024-03-24 16-00-18](https://github.com/fayizferosh/soc-design-and-planning-nasscom-vsd/assets/63997454/33fe575a-7459-4c59-8329-f142ba2099e5)
-![Screenshot from 2024-03-24 16-13-01](https://github.com/fayizferosh/soc-design-and-planning-nasscom-vsd/assets/63997454/13e42f0a-69e7-410d-b901-bc6c4976b7e1)
+![Screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week6/Images/Screenshot%20from%202025-11-11%2017-32-59.png)
+![Screenshot](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week6/Images/Screenshot%20from%202025-11-11%2017-50-47.png)
 
 Commands to view and change parameters to improve timing and run synthesis
 
