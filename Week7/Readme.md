@@ -1,9 +1,5 @@
 
 **ORFS Directory Structure and File formats**
-
-![image]()
-
-
 ``` 
 ├── OpenROAD-flow-scripts             
 │   ├── docker           -> It has Docker based installation, run scripts and all saved here
@@ -14,10 +10,9 @@
 │   ├── etc              -> Has the dependency installer script and other things
 │   ├── setup_env.sh     -> Its the source file to source all our OpenROAD rules to run the RTL to GDS flow
 ```
-
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2002-13-07.png)
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2019-21-00.png)
 Now, go to flow directory
-
-![image]()
 
 ``` 
 ├── flow           
@@ -97,7 +92,7 @@ export SKIP_GATE_CLONING = 1
 
 # export CORE_UTILIZATION=0.1  # Reduce this value to allow more whitespace for routing.
 ```
-
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2019-22-42.png)
 Now go to terminal and run the following commands:
 
 ```
@@ -112,31 +107,25 @@ Commands for **synthesis**:
 make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk synth
 ```
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2022-22-13.png)
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2022-22-55.png)
 
 Synthesis netlist:
 
-![image]()
-
-Synthesis log:
-
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2022-29-54.png)
 
 Synthesis Check:
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2022-36-14.png)
 
 Synthesis Stats:
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2022-36-19.png)
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2022-37-29.png)
 
-![image]()
-
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2022-37-36.png)
 
 Commands for **floorplan**:
 
@@ -144,63 +133,61 @@ Commands for **floorplan**:
 make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk floorplan
 ```
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2022-38-11.png)
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2022-40-38.png)
 
 ```
 make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk gui_floorplan
 ```
-![image]()
-
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2022-52-13.png)
 
 ```
 make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk place
 ```
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2022-52-43.png)
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2022-56-17.png)
 
 ```
 make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk gui_place
 ```
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2023-04-41.png)
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2023-05-34.png)
 
 Heatmap:
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2023-13-25.png)
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2023-15-55.png)
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2023-18-01.png)
 
 
 ```
 make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk cts
 ```
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2023-18-39.png)
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2023-19-16.png)
 
 ```
 make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk gui_cts
 ```
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2023-21-26.png)
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2023-25-16.png)
 
-![image]()
+
 
 CTS final report:
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2023-27-39.png)
 
 
 ```
@@ -716,7 +703,7 @@ Route:
 make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk route
 ```
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2023-28-42.png)
 
-![image]()
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2023-29-30.png)
 
