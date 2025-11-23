@@ -705,5 +705,5 @@ make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk route
 
 ![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2023-28-42.png)
 
-![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2023-29-30.png)
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-23%2016-14-12.png)
 
