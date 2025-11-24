@@ -81,17 +81,17 @@ set list_of_lib_files(13) "sky130_fd_sc_hd__ss_n40C_1v76.lib"
 # -----------------------------
 # Your PATHS (updated)
 # -----------------------------
-set lib_dir "/data/sky130pdk/open_pdks/sky130/sky130A/libs.ref/sky130_fd_sc_hd/lib"
+set lib_dir "/home/jaynadan/sky130pdk/open_pdks/sky130/sky130A/libs.ref/sky130_fd_sc_hd/lib"
 
-set analog_lib_dir "/data/vsd/VLSI/VSDBabySoC/src/lib"
+set analog_lib_dir "/home/jaynadan/vsd/VLSI/VSDBabySoC/src/lib"
 
-set netlist_file "/data/vsd/VLSI/OpenROAD-flow-scripts/flow/results/sky130hd/vsdbabysoc/base/6_final.v"
+set netlist_file "/home/jaynadan/vsd/VLSI/OpenROAD-flow-scripts/flow/results/sky130hd/vsdbabysoc/base/6_final.v"
 
-set sdc_file "/data/vsd/VLSI/OpenROAD-flow-scripts/flow/results/sky130hd/vsdbabysoc/base/6_final.sdc"
+set sdc_file "/home/jaynadanvsd/VLSI/OpenROAD-flow-scripts/flow/results/sky130hd/vsdbabysoc/base/6_final.sdc"
 
-set spef_file "/data/vsd/VLSI/OpenROAD-flow-scripts/flow/results/sky130hd/vsdbabysoc/base/6_final.spef"
+set spef_file "/home/jaynadan/vsd/VLSI/OpenROAD-flow-scripts/flow/results/sky130hd/vsdbabysoc/base/6_final.spef"
 
-set output_dir "/data/vsd/VLSI/VSDBabySoC/STA_OUTPUT/route"
+set output_dir "/home/jaynadan/vsd/VLSI/VSDBabySoC/STA_OUTPUT/route"
 
 file mkdir $output_dir
 
