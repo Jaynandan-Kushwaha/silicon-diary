@@ -707,3 +707,11 @@ make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk route
 
 ![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-23%2016-14-12.png)
 
+
+### Extracting SPEF File 
+
+```
+make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk final
+```
+
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-24%2023-21-23.png)
