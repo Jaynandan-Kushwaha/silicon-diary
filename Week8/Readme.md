@@ -154,6 +154,15 @@ for {set i 1} {$i <= [array size list_of_lib_files]} {incr i} {
         >> $output_dir/sta_wns.txt
 }
 ```
+### Terminal picture running above tcl
+
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week8/Images/Screenshot%20from%202025-11-24%2018-03-42.png)
+
+### tABLE pICTURE
+
+![IMAGE](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week8/Images/Screenshot%202025-11-24%20225759.png)
+
+
 ## Comparison Graphs
 
 ### Worst Hold Slack (WHS)
