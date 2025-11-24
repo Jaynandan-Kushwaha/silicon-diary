@@ -203,5 +203,5 @@ Graph showing TNS differences across all corners.
 - Post-route timing results reveal realistic setup/hold violations caused by routing delays, coupling, and skew.  
 - Multi-corner STA ensures robustness across process, voltage, and temperature variations.
 
-Due to exam pepration i created file late i completd all labs on time i am just creating github juat one day late 
+Due to exam pepration i created file late i completd all labs on time i am just creating github juat one day late i am sorry for creating late github repo
 
