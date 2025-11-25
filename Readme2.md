@@ -1,3 +1,13 @@
+# 🚀 VSDBabySoC — My Complete ASIC Design Journey
+
+Welcome to my **Silicon Diary** — a hands-on exploration of how a real chip is built from scratch using **open-source EDA tools**.  
+This journey documents everything from **Week 0 to Week 9**, starting with basic digital design concepts and ending with a fully routed, timing-clean **GDSII layout** of the VSDBabySoC.
+
+This repository is not just a log of commands — it reflects what I learned, built, broke, fixed, and finally achieved.  
+If you're curious about how RTL becomes silicon, or if you're starting your own ASIC design journey, this diary is for you.
+
+Let’s begin.
+
 # Day0
 
 # /mnt/data/silicon_repo/silicon-diary-main/Day0/README.md
