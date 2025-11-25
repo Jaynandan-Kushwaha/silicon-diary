@@ -770,6 +770,9 @@ make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk route
 
 ![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-23%2016-14-12.png)
 
+### For resolving error [ERROR GRT-0116] Global routing finished with congestion
+
+i updated the config.mk which one i already uploaded and alco make cnages inside lef files which is also available in this week repo 
 
 ### Extracting SPEF File 
 
