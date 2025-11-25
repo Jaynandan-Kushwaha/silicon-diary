@@ -40,57 +40,120 @@ Initial Steps:
 - Now, create a `config.mk` file whose contents are shown below:
 
 ```
+##############################################
+#   vsdbabysoc CONFIGURATION (Sky130HD)
+##############################################
+
 export DESIGN_NICKNAME = vsdbabysoc
-export DESIGN_NAME = vsdbabysoc
-export PLATFORM    = sky130hd
-
-# export VERILOG_FILES_BLACKBOX = $(DESIGN_HOME)/src/$(DESIGN_NICKNAME)/IPs/*.v
-# export VERILOG_FILES = $(sort $(wildcard $(DESIGN_HOME)/src/$(DESIGN_NICKNAME)/*.v))
-# Explicitly list the Verilog files for synthesis
-export VERILOG_FILES = $(DESIGN_HOME)/src/$(DESIGN_NICKNAME)/vsdbabysoc.v \
-                       $(DESIGN_HOME)/src/$(DESIGN_NICKNAME)/rvmyth.v \
-                       $(DESIGN_HOME)/src/$(DESIGN_NICKNAME)/clk_gate.v
-
-export SDC_FILE      = $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NICKNAME)/vsdbabysoc_synthesis.sdc
+export DESIGN_NAME     = vsdbabysoc
+export PLATFORM        = sky130hd
 
 export vsdbabysoc_DIR = $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NICKNAME)
 
+##############################################
+#   RTL / LIB / LEF INPUTS
+##############################################
+
+export VERILOG_FILES = \
+    $(vsdbabysoc_DIR)/src/module/vsdbabysoc.v \
+    $(vsdbabysoc_DIR)/src/module/rvmyth.v \
+    $(vsdbabysoc_DIR)/src/module/clk_gate.v
+
 export VERILOG_INCLUDE_DIRS = $(wildcard $(vsdbabysoc_DIR)/include/)
-# export SDC_FILE      = $(wildcard $(vsdbabysoc_DIR)/sdc/*.sdc)
-export ADDITIONAL_GDS  = $(wildcard $(vsdbabysoc_DIR)/gds/*.gds.gz)
-export ADDITIONAL_LEFS  = $(wildcard $(vsdbabysoc_DIR)/lef/*.lef)
-export ADDITIONAL_LIBS = $(wildcard $(vsdbabysoc_DIR)/lib/*.lib)
-# export PDN_TCL = $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NICKNAME)/pdn.tcl
 
-# Clock Configuration (vsdbabysoc specific)
-# export CLOCK_PERIOD = 20.0
+export SDC_FILE = $(vsdbabysoc_DIR)/vsdbabysoc_synthesis.sdc
+
+export ADDITIONAL_LIBS = \
+    $(vsdbabysoc_DIR)/lib/avsddac.lib \
+    $(vsdbabysoc_DIR)/lib/avsdpll.lib
+
+# Use TRIMMED LEFs (must be placed inside the LEF folder)
+export ADDITIONAL_LEFS = \
+    $(vsdbabysoc_DIR)/lef/avsddac.lef \
+    $(vsdbabysoc_DIR)/lef/avsdpll.lef
+
+# Optional routing blockages TCL
+export ADDITIONAL_ROUTING_BLOCKAGES = $(vsdbabysoc_DIR)/route_blockages.tcl
+
+
+##############################################
+#   DIE / CORE AREA
+##############################################
+
+# Increased die size to reduce global route overflow
+export DIE_AREA  = 0   0   1800 1800
+export CORE_AREA = 20  20  1780 1780
+
+
+##############################################
+#   PLACEMENT PARAMETERS
+##############################################
+
+# Useful for lowering density with macros in design
+export FP_CORE_UTIL  = 40
+export PLACE_DENSITY = 0.30
+
+# Stronger macro halo for easier routing
+export MACRO_PLACE_HALO    = 40 40
+export MACRO_PLACE_CHANNEL = 40 40
+
+# RTLMP disabled
+export RTLMP_FLOW = 0
+
+# External macro placement
+export MACRO_PLACEMENT = $(vsdbabysoc_DIR)/macro.cfg
+
+
+##############################################
+#   CLOCK SETTINGS
+##############################################
+
 export CLOCK_PORT = CLK
-export CLOCK_NET = $(CLOCK_PORT)
+export CLOCK_NET  = CLK
 
-# Floorplanning Configuration (vsdbabysoc specific)
-export FP_PIN_ORDER_CFG = $(wildcard $(DESIGN_DIR)/pin_order.cfg)
-# export FP_SIZING = absolute
-
-export DIE_AREA   = 0 0 1600 1600
-export CORE_AREA  = 20 20 1590 1590
-
-# Placement Configuration (vsdbabysoc specific)
-export MACRO_PLACEMENT_CFG = $(wildcard $(DESIGN_DIR)/macro.cfg)
-export PLACE_PINS_ARGS = -exclude left:0-600 -exclude left:1000-1600: -exclude right:* -exclude top:* -exclude bottom:*
-# export MACRO_PLACEMENT = $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NICKNAME)/macro_placement.cfg
-
-export TNS_END_PERCENT = 100
-export REMOVE_ABC_BUFFERS = 1
-
-# Magic Tool Configuration
-export MAGIC_ZEROIZE_ORIGIN = 0
-export MAGIC_EXT_USE_GDS = 1
-
-# CTS tuning
-export CTS_BUF_DISTANCE = 600
+export CTS_BUF_DISTANCE  = 600
 export SKIP_GATE_CLONING = 1
 
-# export CORE_UTILIZATION=0.1  # Reduce this value to allow more whitespace for routing.
+
+##############################################
+#   ROUTING (GRT) — FIXES GRT-0116
+##############################################
+
+# Allow congestion but continue iterations
+export GRT_ALLOW_CONGESTION      = 1
+export GRT_SKIP_CONGESTION_CHECK = 0
+export GRT_CONGESTION_DRIVEN     = 1
+
+# Stable iteration counts (700 was too high)
+export GRT_MAX_ITERATIONS = 150
+
+# Adjust routing resources to ease congestion
+export GRT_ADJUSTMENT = 0.25
+
+# Via cost (helps with overflow)
+export GRT_VIA_COST_ADJUSTMENT = 2.0
+
+# Allow full runtime
+export GRT_MAX_TIME = 3600
+
+# DO NOT STOP on overflow during debug
+export GRT_FAIL_ON_OVERFLOW = 0
+export GRT_OVERFLOW_ITERS   = 100
+
+
+##############################################
+#   MISC OPTIONS
+##############################################
+
+export TNS_END_PERCENT      = 100
+export REMOVE_ABC_BUFFERS   = 1
+export MAGIC_ZEROIZE_ORIGIN = 0
+export MAGIC_EXT_USE_GDS    = 1
+export RCX_EXTRACT=1
+export RCX_CORNER=typical
+export RCX_SPEF_OUTPUT=1
+
+export SPEF_OUTPUT_FILE = $(vsdbabysoc_DIR)/vsdbabysoc.spef
 ```
 ![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week7/Images/Screenshot%20from%202025-11-15%2019-22-42.png)
 Now go to terminal and run the following commands:
