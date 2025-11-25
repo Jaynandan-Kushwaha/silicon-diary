@@ -167,20 +167,20 @@ for {set i 1} {$i <= [array size list_of_lib_files]} {incr i} {
 
 ### Worst Hold Slack (WHS)
 An image showing the change in worst hold slack between pre-route and post-route.
-![images](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week8/Images/Screenshot%202025-11-24%20231116.png)
+![images](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week8/Images/Screenshot%202025-11-25%20172620.png)
 
 ### Worst Setup Slack (WSS)
 Graph comparing post-synthesis vs post-route setup slacks.
-![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week8/Images/Screenshot%202025-11-24%20231206.png)
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week8/Images/Screenshot%202025-11-25%20172637.png)
 
 ### Worst Negative Slack (WNS)
 Graph showing WNS variation across corners before and after routing.
-![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week8/Images/Screenshot%202025-11-24%20231249.png)
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week8/Images/Screenshot%202025-11-25%20172653.png)
 
 ### Total Negative Slack (TNS)
 
 Graph showing TNS differences across all corners.
-![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week8/Images/Screenshot%202025-11-24%20231329.png)
+![image](https://github.com/Jaynandan-Kushwaha/silicon-diary/blob/main/Week8/Images/Screenshot%202025-11-25%20172706.png)
 
 ---
 
